@@ -19,16 +19,15 @@ void main() {
   };
 
   List<List<String>> resultTeam = [];
+
   bool isInTheSameTeam(String firstStudent, String secondStudent) {
     bool isIntheSameTeam = false;
     for (int i = 1; i < dataStudents.length + 1; i++) {
-      dataStudents['ciclo${i}'].forEach(
-        (e) {
-          if (e.contains(firstStudent) && e.contains(secondStudent)) {
-            isIntheSameTeam = true;
-          }
-        },
-      );
+      dataStudents['ciclo${i}'].forEach((e) {
+        if (e.contains(firstStudent) && e.contains(secondStudent)) {
+          isIntheSameTeam = true;
+        }
+      });
     }
     return isIntheSameTeam;
   }
@@ -68,27 +67,21 @@ void main() {
       sameTeam.add(current);
     }
 
-    if (isInTheSameTeam(current, next)) {
+    bool anyStudentInSameTeam = sameTeam.any((e) => isInTheSameTeam(e, next));
+
+    if (isInTheSameTeam(current, next) || anyStudentInSameTeam) {
       nextStudent++;
       continue;
     }
 
-    if (!isInTheSameTeam(current, next) && !sameTeam.contains(next)) {
-      if (!sameTeam.any((e) => isInTheSameTeam(e, next))) {
-        sameTeam.add(next);
-        if (sameTeam.length == quantStudentsPerTeam) {
-          students =
-              students.where((element) => !sameTeam.contains(element)).toList();
-          resultTeam.add([...sameTeam]);
-          sameTeam.clear();
-          currentStudent = 0;
-          nextStudent = currentStudent + 1;
-        }
-      } else {
-        nextStudent++;
-      }
-    } else {
-      nextStudent++;
+    sameTeam.add(next);
+    if (sameTeam.length == quantStudentsPerTeam) {
+      students =
+          students.where((student) => !sameTeam.contains(student)).toList();
+      resultTeam.add([...sameTeam]);
+      sameTeam.clear();
+      currentStudent = 0;
+      nextStudent = currentStudent + 1;
     }
   }
 
