@@ -22,7 +22,7 @@ void main() {
 
   bool isInTheSameTeam(String firstStudent, String secondStudent) {
     bool isIntheSameTeam = false;
-    for (int i = 1; i < dataStudents.length + 1; i++) {
+    for (int i = 1; i < dataStudents.length; i++) {
       dataStudents['ciclo${i}'].forEach((e) {
         if (e.contains(firstStudent) && e.contains(secondStudent)) {
           isIntheSameTeam = true;
@@ -57,29 +57,31 @@ void main() {
     "Caio",
   ];
 
-  int quantStudentsPerTeam = 2;
-  List<String> sameTeam = [];
+  int quantStudentsPerTeam = 3;
+  List<String> sameGroup = [];
   while (nextStudent < students.length) {
     String current = students[currentStudent];
     String next = students[nextStudent];
 
-    if (sameTeam.length == 0) {
-      sameTeam.add(current);
+    if (sameGroup.length == 0) {
+      sameGroup.add(current);
     }
 
-    bool anyStudentInSameTeam = sameTeam.any((e) => isInTheSameTeam(e, next));
-
-    if (isInTheSameTeam(current, next) || anyStudentInSameTeam) {
+    if (sameGroup.any((e) => isInTheSameTeam(e, next)) ||
+        sameGroup.contains(current) && sameGroup.contains(next)) {
       nextStudent++;
       continue;
     }
 
-    sameTeam.add(next);
-    if (sameTeam.length == quantStudentsPerTeam) {
-      students =
-          students.where((student) => !sameTeam.contains(student)).toList();
-      resultTeam.add([...sameTeam]);
-      sameTeam.clear();
+    sameGroup.add(next);
+
+    if (sameGroup.length == quantStudentsPerTeam) {
+      students = students.where((student) {
+        return !sameGroup.contains(student);
+      }).toList();
+
+      resultTeam.add([...sameGroup]);
+      sameGroup.clear();
       currentStudent = 0;
       nextStudent = currentStudent + 1;
     }
