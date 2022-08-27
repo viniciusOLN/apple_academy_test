@@ -9,7 +9,7 @@
 
  ## Outra Alternativa
 
- 1. rode o programa através do dartpad, (clicando aqui)[https://dartpad.dev/?id=376a5b43022c820bfe5ddb377b2659e1]
+ 1. rode o programa através do dartpad, [clicando aqui](https://dartpad.dev/?id=376a5b43022c820bfe5ddb377b2659e1)
  2. sem necessidade de instalar nada
 
 
