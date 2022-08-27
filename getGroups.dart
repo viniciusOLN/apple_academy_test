@@ -15,9 +15,8 @@ List<List<String>> _getTeams(int limit, List<String> students, Map data) {
     }
 
     bool isAllInSameTeam = sameGroup.any((e) => isInTheSameTeam(e, next, data));
-    bool bothInGroup = sameGroup.contains(current) && sameGroup.contains(next);
 
-    if (isAllInSameTeam || bothInGroup) {
+    if (isAllInSameTeam) {
       nextStudent++;
       continue;
     }
