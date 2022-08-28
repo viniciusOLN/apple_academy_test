@@ -26,4 +26,6 @@
  Se os dois valores(pivô 1 e pivô 2) ou os que estiverem sendo comparados para time até o momento não estiverem no mesmo time em nenhum dos ciclos passados, eles são salvos dentro de um array temporário chamado *sameGroup* até conseguir atingir o limite de estudantes para o grupo. Ao atingir o limite da equipe, o array *sameGroup* é salvo dentro de outro array final chamado de *resultTeam* e os pivôs são reiniciados, podendo partir para os próximos valores no array a serem comparados. O programa ainda, retira todos os nomes que já foram comparados e que podem fazer equipe de dentro do array principal, com a finalidade de deixar apenas os alunos que não podem fazer equipe no array.
 
  Esse método é repetido até percorrer todo o vetor, que por sua vez é repetido *N vezes* onde *n = limite de participantes em um grupo*.
+
+ Ao final da execução então, temos a lista *group* que possui todos os grupos possíveis e a lista *students* que durante a execução foi modificada, possuindo apenas os nomes de alunos que não conseguiram formar equipe.
  
