@@ -40,6 +40,7 @@ List<List<String>> _getTeams(int limit, List<String> students, Map data) {
 
       resultTeam.add([...sameGroup]);
       sameGroup.clear();
+
       currentStudent = 0;
       nextStudent = currentStudent + 1;
     }

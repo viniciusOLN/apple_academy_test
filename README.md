@@ -28,4 +28,8 @@
  Esse método é repetido até percorrer todo o vetor, que por sua vez é repetido *N vezes* onde *n = limite de participantes em um grupo*.
 
  Ao final da execução então, temos a lista *group* que possui todos os grupos possíveis e a lista *students* que durante a execução foi modificada, possuindo apenas os nomes de alunos que não conseguiram formar equipe.
+
+
+ ### Documentação do processo de criação e pesquisa:
+  - [clique aqui pra acessar](https://amazing-mandolin-92a.notion.site/Processo-de-Pesquisa-e-Estudos-07da92de1ed7438dbf33b88d7a1748bd)
  
